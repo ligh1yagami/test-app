@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Themed Web Page</title>
+    <title>Rahul's web page</title>
     <style>
         body {
-            background-color: #121212;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #FFF;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,10 +24,55 @@
             padding: 20px;
             background: #1f1f1f;
             border-radius: 10px;
+            animation: fadeIn 3s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .stars {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 988px 562px #FFF, 919px 1709px #FFF, 897px 1174px #FFF, 1697px 1190px #FFF,
+                        1885px 1430px #FFF, 1635px 1207px #FFF, 1735px 1318px #FFF, 1602px 1411px #FFF,
+                        938px 1297px #FFF, 1206px 769px #FFF, 1006px 1858px #FFF, 497px 1108px #FFF,
+                        1620px 1625px #FFF, 1920px 1578px #FFF, 553px 1890px #FFF, 808px 1719px #FFF,
+                        1001px 1176px #FFF, 124px 825px #FFF, 1698px 1660px #FFF, 1177px 580px #FFF;
+            animation: starAnimation 50s linear infinite;
+        }
+        @keyframes starAnimation {
+            from { transform: translateX(0px); }
+            to { transform: translateX(-2000px); }
+        }
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 50%, rgba(255, 0, 0, 0) 100%);
+            animation: laserAnimation 2s infinite;
+            z-index: 0;
+        }
+        .laser:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .laser:nth-child(2) { left: 40%; animation-delay: 0.5s; }
+        .laser:nth-child(3) { left: 60%; animation-delay: 1s; }
+        .laser:nth-child(4) { left: 80%; animation-delay: 1.5s; }
+
+        @keyframes laserAnimation {
+            0% { height: 0%; opacity: 0; }
+            50% { height: 100%; opacity: 1; }
+            100% { height: 0%; opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <h1>Hi,this is a sample application</h1>
+    <h1>This is a sample application</h1>
+    <div class="stars"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
 </body>
 </html>
